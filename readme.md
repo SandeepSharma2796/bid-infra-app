@@ -11,4 +11,7 @@ npm run dev
 http://localhost:3000
 
 
+git init
+git add .
+git commit -m "Initial commit"
 
