@@ -1,0 +1,1224 @@
+2026-05-24 11:25:55 | INFO     | bid_infra | ============================================================
+2026-05-24 11:25:55 | INFO     | bid_infra | Bid-Infra backend starting up
+2026-05-24 11:25:55 | INFO     | bid_infra | App log  : D:\bid-infra-app\backend\app.log  |  Uvicorn log: server.log
+2026-05-24 11:25:55 | INFO     | bid_infra | GEMINI_API_KEY loaded (length=39)
+2026-05-24 11:25:55 | INFO     | bid_infra | ============================================================
+2026-05-24 11:29:02 | INFO     | bid_infra | POST /api/chat-followup | message='hellow'
+2026-05-24 11:29:02 | WARNING  | bid_infra | No active session file — sending text-only request to Gemini
+2026-05-24 11:29:02 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 11:29:03 | ERROR    | bid_infra | Unhandled error in /api/chat-followup: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 202, in chat_followup
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=contents,
+    )
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\google\genai\models.py", line 6495, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\google\genai\models.py", line 4931, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\google\genai\_api_client.py", line 1611, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\google\genai\_api_client.py", line 1404, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\tenacity\__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\tenacity\__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\google\genai\_api_client.py", line 1381, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\google\genai\errors.py", line 155, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\google\genai\errors.py", line 184, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+2026-05-24 11:33:39 | INFO     | bid_infra | ============================================================
+2026-05-24 11:33:39 | INFO     | bid_infra | Bid-Infra backend starting up
+2026-05-24 11:33:39 | INFO     | bid_infra | App log  : D:\bid-infra-app\backend\app.log  |  Uvicorn log: server.log
+2026-05-24 11:33:39 | INFO     | bid_infra | GEMINI_API_KEY loaded (length=39)
+2026-05-24 11:33:39 | INFO     | bid_infra | ============================================================
+2026-05-24 11:33:47 | INFO     | bid_infra | POST /api/chat-followup | message='bsndmcbjkas'
+2026-05-24 11:33:47 | WARNING  | bid_infra | No active session file — sending text-only request to Gemini
+2026-05-24 11:33:47 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 11:33:53 | INFO     | bid_infra | Gemini chat response received (205 chars)
+2026-05-24 11:33:53 | DEBUG    | bid_infra | Generating PDF from response text (205 chars)
+2026-05-24 11:33:53 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.multi_cell(0, 6, txt=clean_line)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 11:34:01 | INFO     | bid_infra | POST /api/chat-followup | message='Ds ndn,csd'
+2026-05-24 11:34:01 | WARNING  | bid_infra | No active session file — sending text-only request to Gemini
+2026-05-24 11:34:01 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 11:34:09 | INFO     | bid_infra | Gemini chat response received (448 chars)
+2026-05-24 11:34:09 | DEBUG    | bid_infra | Generating PDF from response text (448 chars)
+2026-05-24 11:34:09 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.multi_cell(0, 6, txt=clean_line)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 11:37:31 | INFO     | bid_infra | ============================================================
+2026-05-24 11:37:31 | INFO     | bid_infra | Bid-Infra backend starting up
+2026-05-24 11:37:31 | INFO     | bid_infra | App log  : D:\bid-infra-app\backend\app.log  |  Uvicorn log: server.log
+2026-05-24 11:37:31 | INFO     | bid_infra | GEMINI_API_KEY loaded (length=39)
+2026-05-24 11:37:31 | INFO     | bid_infra | ============================================================
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:212992]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:229376]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:212992]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:65536]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:131072]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11080]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11124:11143]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11145:11174]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[11178:11186]
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 11:38:29 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 11:38:29 | INFO     | bid_infra | POST /api/upload-tender | file=Draft RFP for HAM.pdf | module=synopsis
+2026-05-24 11:38:29 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf (1174190 bytes)
+2026-05-24 11:38:29 | INFO     | bid_infra | Uploading file to Google Files API: Draft RFP for HAM.pdf
+2026-05-24 11:38:34 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/ent5fweesdag
+2026-05-24 11:38:34 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 11:38:34 | INFO     | bid_infra | Session updated — active file: Draft RFP for HAM.pdf
+2026-05-24 11:38:34 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 11:38:34 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 11:39:17 | INFO     | bid_infra | Gemini responded (8680 chars)
+2026-05-24 11:39:17 | DEBUG    | bid_infra | Generating PDF from response text (8680 chars)
+2026-05-24 11:39:17 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.multi_cell(0, 6, txt=clean_line)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 11:39:17 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf
+2026-05-24 11:44:43 | INFO     | bid_infra | POST /api/chat-followup | message='Hello , what is your name '
+2026-05-24 11:44:43 | DEBUG    | bid_infra | Using session file: Draft RFP for HAM.pdf
+2026-05-24 11:44:43 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 11:45:00 | INFO     | bid_infra | Gemini chat response received (69 chars)
+2026-05-24 11:45:00 | DEBUG    | bid_infra | Generating PDF from response text (69 chars)
+2026-05-24 11:45:00 | DEBUG    | fpdf.output | Final size summary of the biggest document sections:
+2026-05-24 11:45:00 | DEBUG    | fpdf.output | - pages: 272.0B
+2026-05-24 11:45:00 | DEBUG    | fpdf.output | - fonts: 97.0B
+2026-05-24 11:45:00 | DEBUG    | bid_infra | PDF generated successfully (1368 base64 chars)
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:131]
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[133:145]
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[147:162]
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[166:79041]
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[79085:79104]
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[79106:79135]
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[79139:79147]
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 11:55:03 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 11:55:03 | INFO     | bid_infra | POST /api/upload-tender | file=1A. NIT-Kaliabor - Numaligarh.pdf | module=synopsis
+2026-05-24 11:55:03 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf (78875 bytes)
+2026-05-24 11:55:03 | INFO     | bid_infra | Uploading file to Google Files API: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 11:55:07 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/weriwhuwabes
+2026-05-24 11:55:07 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 11:55:07 | INFO     | bid_infra | Session updated — active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 11:55:07 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 11:55:07 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 11:55:22 | INFO     | bid_infra | Gemini responded (2595 chars)
+2026-05-24 11:55:22 | DEBUG    | bid_infra | Generating PDF from response text (2595 chars)
+2026-05-24 11:55:22 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.multi_cell(0, 6, txt=clean_line)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 11:55:22 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:196608]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:245760]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:81920]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:114688]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:42876]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42920:42939]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[42941:42970]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[42974:42982]
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 11:58:29 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 11:58:29 | INFO     | bid_infra | POST /api/upload-tender | file=Draft MCA for HAM.pdf | module=synopsis
+2026-05-24 11:58:29 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft MCA for HAM.pdf (1205986 bytes)
+2026-05-24 11:58:29 | INFO     | bid_infra | Uploading file to Google Files API: Draft MCA for HAM.pdf
+2026-05-24 11:58:33 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/1g9m36urodmy
+2026-05-24 11:58:33 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 11:58:33 | INFO     | bid_infra | Session updated — active file: Draft MCA for HAM.pdf
+2026-05-24 11:58:33 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 11:58:33 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 11:59:12 | INFO     | bid_infra | Gemini responded (9486 chars)
+2026-05-24 11:59:12 | DEBUG    | bid_infra | Generating PDF from response text (9486 chars)
+2026-05-24 11:59:12 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.multi_cell(0, 6, txt=clean_line)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 11:59:12 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft MCA for HAM.pdf
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:196608]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:245760]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:239484]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[239528:239547]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[239549:239578]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[239582:239586]
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 11:59:19 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 11:59:19 | INFO     | bid_infra | POST /api/upload-tender | file=Draft MCA for HAM.pdf | module=risk
+2026-05-24 11:59:19 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft MCA for HAM.pdf (1205986 bytes)
+2026-05-24 11:59:19 | INFO     | bid_infra | Uploading file to Google Files API: Draft MCA for HAM.pdf
+2026-05-24 11:59:23 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/dstk1wvwl6tc
+2026-05-24 11:59:23 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 11:59:23 | INFO     | bid_infra | Session updated — active file: Draft MCA for HAM.pdf
+2026-05-24 11:59:23 | INFO     | bid_infra | Sending prompt to Gemini (module=risk)
+2026-05-24 11:59:23 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:00:04 | INFO     | bid_infra | Gemini responded (25437 chars)
+2026-05-24 12:00:04 | DEBUG    | bid_infra | Generating PDF from response text (25437 chars)
+2026-05-24 12:00:04 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.multi_cell(0, 6, txt=clean_line)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:00:04 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft MCA for HAM.pdf
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:261473]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:246431]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:142152]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[142196:142215]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[142217:142273]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[142275:142287]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[142289:142304]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[142308:245760]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:147456]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:147456]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:98304]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:245760]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:201414]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[201458:201477]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[201479:201508]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[201512:201520]
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:06:26 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:06:26 | INFO     | bid_infra | POST /api/upload-tender | file=Draft MCA for HAM.pdf | module=synopsis
+2026-05-24 12:06:26 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft MCA for HAM.pdf (1205986 bytes)
+2026-05-24 12:06:26 | INFO     | bid_infra | Uploading file to Google Files API: Draft MCA for HAM.pdf
+2026-05-24 12:06:32 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/9h320ph1wf6g
+2026-05-24 12:06:32 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:06:32 | INFO     | bid_infra | Session updated — active file: Draft MCA for HAM.pdf
+2026-05-24 12:06:32 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:06:32 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:07:05 | INFO     | bid_infra | Gemini responded (9575 chars)
+2026-05-24 12:07:05 | DEBUG    | bid_infra | Generating PDF from response text (9575 chars)
+2026-05-24 12:07:05 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    for line in text_content.split("\n"):
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:07:05 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft MCA for HAM.pdf
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:114688]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11080]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11124:11143]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11145:11213]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11215:11227]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11229:11244]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[11248:90123]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[90167:90186]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[90188:90217]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[90221:90229]
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:08:31 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:08:31 | INFO     | bid_infra | POST /api/upload-tender | file=1A. NIT-Kaliabor - Numaligarh.pdf | module=synopsis
+2026-05-24 12:08:31 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf (78875 bytes)
+2026-05-24 12:08:31 | INFO     | bid_infra | Uploading file to Google Files API: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:08:35 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/btxvatakd1f8
+2026-05-24 12:08:35 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:08:35 | INFO     | bid_infra | Session updated — active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:08:35 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:08:35 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:08:57 | INFO     | bid_infra | Gemini responded (2880 chars)
+2026-05-24 12:08:57 | DEBUG    | bid_infra | Generating PDF from response text (2880 chars)
+2026-05-24 12:08:57 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    for line in text_content.split("\n"):
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:08:57 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:196608]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:245760]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:114688]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:196608]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:65536]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:124796]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[124840:124859]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[124861:124929]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[124931:124943]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[124945:124960]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[124964:131072]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:72767]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[72811:72830]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[72832:72861]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[72865:72873]
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:25:56 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:25:56 | INFO     | bid_infra | POST /api/upload-tender | file=1A. NIT-Kaliabor - Numaligarh.pdf | module=synopsis
+2026-05-24 12:25:56 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf (78875 bytes)
+2026-05-24 12:25:56 | INFO     | bid_infra | Uploading file to Google Files API: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:26:01 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/s7736b3tlada
+2026-05-24 12:26:01 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:26:01 | INFO     | bid_infra | Session updated — active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:26:01 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:26:01 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:26:16 | INFO     | bid_infra | Gemini responded (3661 chars)
+2026-05-24 12:26:16 | DEBUG    | bid_infra | Generating PDF from response text (3661 chars)
+2026-05-24 12:26:16 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    clean_line = line.encode("latin-1", "ignore").decode("latin-1")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:26:16 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:26:50 | INFO     | bid_infra | POST /api/clear-session — clearing active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:262144]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:157564]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[157608:157627]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[157629:157658]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[157662:157670]
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:27:09 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:27:09 | INFO     | bid_infra | POST /api/upload-tender | file=Draft MCA for HAM.pdf | module=synopsis
+2026-05-24 12:27:09 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft MCA for HAM.pdf (1205986 bytes)
+2026-05-24 12:27:09 | INFO     | bid_infra | Uploading file to Google Files API: Draft MCA for HAM.pdf
+2026-05-24 12:27:13 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/d4x610alxsjg
+2026-05-24 12:27:13 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:27:13 | INFO     | bid_infra | Session updated — active file: Draft MCA for HAM.pdf
+2026-05-24 12:27:13 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:27:13 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:27:44 | INFO     | bid_infra | Gemini responded (8930 chars)
+2026-05-24 12:27:44 | DEBUG    | bid_infra | Generating PDF from response text (8930 chars)
+2026-05-24 12:27:44 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    clean_line = line.encode("latin-1", "ignore").decode("latin-1")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:27:44 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft MCA for HAM.pdf
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:262144]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:212992]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:206716]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[206760:206779]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[206781:206849]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[206851:206863]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[206865:206880]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[206884:262144]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:23615]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[23659:23678]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[23680:23709]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[23713:23721]
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:28:23 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:28:23 | INFO     | bid_infra | POST /api/upload-tender | file=1A. NIT-Kaliabor - Numaligarh.pdf | module=synopsis
+2026-05-24 12:28:23 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf (78875 bytes)
+2026-05-24 12:28:23 | INFO     | bid_infra | Uploading file to Google Files API: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:28:27 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/xv10alew7zvo
+2026-05-24 12:28:27 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:28:27 | INFO     | bid_infra | Session updated — active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:28:27 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:28:27 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:28:42 | INFO     | bid_infra | Gemini responded (2924 chars)
+2026-05-24 12:28:42 | DEBUG    | bid_infra | Generating PDF from response text (2924 chars)
+2026-05-24 12:28:42 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    clean_line = line.encode("latin-1", "ignore").decode("latin-1")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:28:42 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:229376]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:212992]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:147456]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:65536]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:147456]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11080]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11124:11143]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11145:11213]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11215:11227]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11229:11244]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[11248:90123]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[90167:90186]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[90188:90217]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[90221:90229]
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:33:31 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:33:31 | INFO     | bid_infra | POST /api/upload-tender | file=1A. NIT-Kaliabor - Numaligarh.pdf | module=synopsis
+2026-05-24 12:33:31 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf (78875 bytes)
+2026-05-24 12:33:31 | INFO     | bid_infra | Uploading file to Google Files API: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:33:35 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/of7u9zm8kkzl
+2026-05-24 12:33:35 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:33:35 | INFO     | bid_infra | Session updated — active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:33:35 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:33:35 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:33:53 | INFO     | bid_infra | Gemini responded (3029 chars)
+2026-05-24 12:33:53 | DEBUG    | bid_infra | Generating PDF from response text (3029 chars)
+2026-05-24 12:33:53 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:33:53 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:131]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[133:145]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[147:162]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[166:79041]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[79085:79104]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[79106:79162]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[79164:79176]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[79178:79193]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[79197:261473]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:230047]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:237579]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[237623:237642]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[237644:237673]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[237677:237685]
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:35:25 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:35:26 | INFO     | bid_infra | POST /api/upload-tender | file=Draft RFP for HAM.pdf | module=synopsis
+2026-05-24 12:35:26 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf (1174190 bytes)
+2026-05-24 12:35:26 | INFO     | bid_infra | Uploading file to Google Files API: Draft RFP for HAM.pdf
+2026-05-24 12:35:31 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/cq900mwrk7gb
+2026-05-24 12:35:31 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:35:31 | INFO     | bid_infra | Session updated — active file: Draft RFP for HAM.pdf
+2026-05-24 12:35:31 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:35:31 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:36:05 | INFO     | bid_infra | Gemini responded (9289 chars)
+2026-05-24 12:36:05 | DEBUG    | bid_infra | Generating PDF from response text (9289 chars)
+2026-05-24 12:36:05 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:36:05 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:131]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[133:145]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[147:162]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[166:65536]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13505]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[13549:13568]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[13570:13626]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[13628:13640]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[13642:13657]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[13661:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:81920]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16384]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:122891]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[122935:122954]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[122956:122985]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[122989:122992]
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:36:37 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:36:37 | INFO     | bid_infra | POST /api/upload-tender | file=Draft RFP for HAM.pdf | module=ppt
+2026-05-24 12:36:37 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf (1174190 bytes)
+2026-05-24 12:36:37 | INFO     | bid_infra | Uploading file to Google Files API: Draft RFP for HAM.pdf
+2026-05-24 12:36:42 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/elalobsoxsyh
+2026-05-24 12:36:42 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:36:42 | INFO     | bid_infra | Session updated — active file: Draft RFP for HAM.pdf
+2026-05-24 12:36:42 | INFO     | bid_infra | Sending prompt to Gemini (module=ppt)
+2026-05-24 12:36:42 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:37:26 | INFO     | bid_infra | Gemini responded (13803 chars)
+2026-05-24 12:37:26 | DEBUG    | bid_infra | Generating PDF from response text (13803 chars)
+2026-05-24 12:37:26 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:37:26 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:131]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[133:145]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[147:162]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[166:79041]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[79085:79104]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[79106:79162]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[79164:79176]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[79178:79193]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[79197:196608]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:131]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[133:145]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[147:162]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[166:79041]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[79085:79104]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[79106:79162]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[79164:79176]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[79178:79193]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[79197:196608]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:196608]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:163840]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:245760]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:229376]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:131072]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:131072]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:65536]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:188427]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[188471:188490]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[188492:188521]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[188525:188528]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:188427]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[188471:188490]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[188492:188521]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[188525:188528]
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:37:26 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:37:26 | INFO     | bid_infra | POST /api/upload-tender | file=Draft RFP for HAM.pdf | module=ppt
+2026-05-24 12:37:26 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf (1174190 bytes)
+2026-05-24 12:37:26 | INFO     | bid_infra | Uploading file to Google Files API: Draft RFP for HAM.pdf
+2026-05-24 12:37:30 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/tm50mnngcilv
+2026-05-24 12:37:30 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:37:30 | INFO     | bid_infra | Session updated — active file: Draft RFP for HAM.pdf
+2026-05-24 12:37:30 | INFO     | bid_infra | Sending prompt to Gemini (module=ppt)
+2026-05-24 12:37:30 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:38:15 | INFO     | bid_infra | Gemini responded (14553 chars)
+2026-05-24 12:38:15 | DEBUG    | bid_infra | Generating PDF from response text (14553 chars)
+2026-05-24 12:38:15 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:38:15 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf
+2026-05-24 12:38:15 | INFO     | bid_infra | POST /api/upload-tender | file=Draft RFP for HAM.pdf | module=ppt
+2026-05-24 12:38:15 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf (1174190 bytes)
+2026-05-24 12:38:15 | INFO     | bid_infra | Uploading file to Google Files API: Draft RFP for HAM.pdf
+2026-05-24 12:38:19 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/j54u6xic7rle
+2026-05-24 12:38:19 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:38:19 | INFO     | bid_infra | Session updated — active file: Draft RFP for HAM.pdf
+2026-05-24 12:38:19 | INFO     | bid_infra | Sending prompt to Gemini (module=ppt)
+2026-05-24 12:38:19 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:38:58 | INFO     | bid_infra | Gemini responded (11047 chars)
+2026-05-24 12:38:58 | DEBUG    | bid_infra | Generating PDF from response text (11047 chars)
+2026-05-24 12:38:58 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:38:58 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:261473]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:246431]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:163840]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:65536]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:65536]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:98304]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11080]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11124:11143]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11145:11213]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11215:11227]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11229:11244]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[11248:90123]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[90167:90186]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[90188:90217]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[90221:90229]
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:42:37 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:42:37 | INFO     | bid_infra | POST /api/upload-tender | file=1A. NIT-Kaliabor - Numaligarh.pdf | module=synopsis
+2026-05-24 12:42:37 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf (78875 bytes)
+2026-05-24 12:42:37 | INFO     | bid_infra | Uploading file to Google Files API: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:42:41 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/6zo5n94r4pqy
+2026-05-24 12:42:41 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:42:41 | INFO     | bid_infra | Session updated — active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:42:41 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:42:41 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:42:57 | INFO     | bid_infra | Gemini responded (2877 chars)
+2026-05-24 12:42:57 | DEBUG    | bid_infra | Generating PDF from response text (2877 chars)
+2026-05-24 12:42:57 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:42:57 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:43:14 | INFO     | bid_infra | POST /api/chat-followup | message='Hello'
+2026-05-24 12:43:14 | DEBUG    | bid_infra | Using session file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:43:14 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:43:20 | INFO     | bid_infra | Gemini chat response received (1132 chars)
+2026-05-24 12:43:20 | DEBUG    | bid_infra | Generating PDF from response text (1132 chars)
+2026-05-24 12:43:20 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:43:33 | INFO     | bid_infra | POST /api/chat-followup | message='What is your name ?'
+2026-05-24 12:43:33 | DEBUG    | bid_infra | Using session file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:43:33 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:43:37 | INFO     | bid_infra | Gemini chat response received (47 chars)
+2026-05-24 12:43:37 | DEBUG    | bid_infra | Generating PDF from response text (47 chars)
+2026-05-24 12:43:37 | DEBUG    | fpdf.output | Final size summary of the biggest document sections:
+2026-05-24 12:43:37 | DEBUG    | fpdf.output | - pages: 258.0B
+2026-05-24 12:43:37 | DEBUG    | fpdf.output | - fonts: 97.0B
+2026-05-24 12:43:37 | DEBUG    | bid_infra | PDF generated successfully (1352 base64 chars)
+2026-05-24 12:44:00 | INFO     | bid_infra | POST /api/clear-session — clearing active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:44:05 | INFO     | bid_infra | POST /api/chat-followup | message='Hello'
+2026-05-24 12:44:05 | WARNING  | bid_infra | No active session file — sending text-only request to Gemini
+2026-05-24 12:44:05 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:44:07 | INFO     | bid_infra | Gemini chat response received (32 chars)
+2026-05-24 12:44:07 | DEBUG    | bid_infra | Generating PDF from response text (32 chars)
+2026-05-24 12:44:07 | DEBUG    | fpdf.output | Final size summary of the biggest document sections:
+2026-05-24 12:44:07 | DEBUG    | fpdf.output | - pages: 245.0B
+2026-05-24 12:44:07 | DEBUG    | fpdf.output | - fonts: 97.0B
+2026-05-24 12:44:07 | DEBUG    | bid_infra | PDF generated successfully (1332 base64 chars)
+2026-05-24 12:44:24 | INFO     | bid_infra | POST /api/chat-followup | message='I am sandeep.'
+2026-05-24 12:44:24 | WARNING  | bid_infra | No active session file — sending text-only request to Gemini
+2026-05-24 12:44:24 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:44:28 | INFO     | bid_infra | Gemini chat response received (64 chars)
+2026-05-24 12:44:28 | DEBUG    | bid_infra | Generating PDF from response text (64 chars)
+2026-05-24 12:44:28 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:196608]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:262144]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:114688]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:32768]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:65536]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:81920]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:49152]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:81920]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11080]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11124:11143]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11145:11213]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11215:11227]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11229:11244]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[11248:90123]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[90167:90186]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[90188:90217]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[90221:90229]
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:47:54 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:47:54 | INFO     | bid_infra | POST /api/upload-tender | file=1A. NIT-Kaliabor - Numaligarh.pdf | module=synopsis
+2026-05-24 12:47:54 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf (78875 bytes)
+2026-05-24 12:47:54 | INFO     | bid_infra | Uploading file to Google Files API: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:47:57 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/67q2bisua64z
+2026-05-24 12:47:57 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:47:57 | INFO     | bid_infra | Session updated — active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:47:57 | INFO     | bid_infra | Sending prompt to Gemini (module=synopsis)
+2026-05-24 12:47:57 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:48:16 | INFO     | bid_infra | Gemini responded (3560 chars)
+2026-05-24 12:48:16 | DEBUG    | bid_infra | Generating PDF from response text (3560 chars)
+2026-05-24 12:48:16 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:48:16 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:49:06 | INFO     | bid_infra | POST /api/chat-followup | message='in short give'
+2026-05-24 12:49:06 | DEBUG    | bid_infra | Using session file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:49:06 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:49:15 | INFO     | bid_infra | Gemini chat response received (760 chars)
+2026-05-24 12:49:15 | DEBUG    | bid_infra | Generating PDF from response text (760 chars)
+2026-05-24 12:49:15 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:49:37 | INFO     | bid_infra | POST /api/clear-session — clearing active file: 1A. NIT-Kaliabor - Numaligarh.pdf
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:119]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[121:133]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:150]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[154:212992]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:229376]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:163840]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:147456]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:212992]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:196608]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11080]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[11124:11143]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[11145:11174]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[11178:11182]
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-24 12:49:55 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-24 12:49:55 | INFO     | bid_infra | POST /api/upload-tender | file=Draft RFP for HAM.pdf | module=risk
+2026-05-24 12:49:55 | DEBUG    | bid_infra | Saved upload to temp path: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf (1174190 bytes)
+2026-05-24 12:49:55 | INFO     | bid_infra | Uploading file to Google Files API: Draft RFP for HAM.pdf
+2026-05-24 12:49:59 | INFO     | bid_infra | File uploaded — state=ACTIVE | name=files/i8jpdso3csc2
+2026-05-24 12:49:59 | INFO     | bid_infra | File processing complete — final state=ACTIVE
+2026-05-24 12:49:59 | INFO     | bid_infra | Session updated — active file: Draft RFP for HAM.pdf
+2026-05-24 12:49:59 | INFO     | bid_infra | Sending prompt to Gemini (module=risk)
+2026-05-24 12:49:59 | INFO     | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-24 12:51:12 | INFO     | bid_infra | Gemini responded (14644 chars)
+2026-05-24 12:51:12 | DEBUG    | bid_infra | Generating PDF from response text (14644 chars)
+2026-05-24 12:51:12 | ERROR    | bid_infra | PDF generation failed: Not enough horizontal space to render a single character
+Traceback (most recent call last):
+  File "D:\bid-infra-app\backend\main.py", line 96, in generate_pdf_in_memory
+    pdf.set_font("Arial", size=11)
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 281, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\deprecation.py", line 36, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\fpdf.py", line 4916, in multi_cell
+    text_line = multi_line_break.get_line()
+  File "C:\Users\Sandeep Sharma\anaconda3\Lib\site-packages\fpdf\line_break.py", line 851, in get_line
+    raise FPDFException(
+        "Not enough horizontal space to render a single character"
+    )
+fpdf.errors.FPDFException: Not enough horizontal space to render a single character
+2026-05-24 12:51:12 | DEBUG    | bid_infra | Cleaned up temp file: D:\bid-infra-app\backend\temp_files\Draft RFP for HAM.pdf
