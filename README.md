@@ -1,1 +1,0 @@
-# bidpilot-copilot
